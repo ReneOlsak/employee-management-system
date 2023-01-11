@@ -1,14 +1,33 @@
-import './App.scss'
-import Signup from './components/Signup'
+import "./App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/Login";
+import { initializeApp } from "firebase/app";
+import { config } from "./config/config";
+import AuthRoute from "./components/AuthRoute";
 
+initializeApp(config.firebaseConfig);
 
-function App() {
+export interface AppProps {}
 
+const App: React.FunctionComponent<AppProps> = (props) => {
   return (
     <div className="app-container">
-      <Signup />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <AuthRoute>
+                <HomePage />
+              </AuthRoute>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
