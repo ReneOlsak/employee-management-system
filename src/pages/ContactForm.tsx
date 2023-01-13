@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AddContact from "../components/AddContact";
 
 export interface IUserData {
   name: string;
@@ -34,18 +33,23 @@ const ContactForm = () => {
     const newContact = { name: name, job: job, number: number, email: email };
     setContact([...contact, newContact]);
     console.log(contact);
+    navigate("/")
   };
 
-  const deleteContact = (contactToDelete: string): void => {
+  const handleRemove = (index: any) => {
     setContact(
-      contact.filter((contact) => {
-        return contact.name !== contactToDelete;
+      contact.filter((_, i) => {
+        return i !== index;
       })
     );
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
+
   return (
-    <form className="contact-form-container">
+    <form className="contact-form-container" onSubmit={handleSubmit}>
       <div>ContactForm</div>
       <input
         onChange={handleChange}
@@ -83,7 +87,19 @@ const ContactForm = () => {
       <div>
         {contact.map((name: IUserData, key: number) => {
           return (
-            <AddContact deleteContact={deleteContact} data={name} key={key} />
+            <div key={key} className="added-contact">
+              <div>{name.name}</div>
+              <div>{name.job}</div>
+              <div>{name.number}</div>
+              <div>{name.email}</div>
+              <button
+                onClick={() => {
+                  handleRemove(key);
+                }}
+              >
+                x
+              </button>
+            </div>
           );
         })}
       </div>
