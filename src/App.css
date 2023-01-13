@@ -177,4 +177,78 @@ button:focus {
     width: 100%;
     height: 100%;
   }
+}
+body {
+  background-color: rgb(70, 70, 70);
+}
+
+.homepage-container {
+  display: flex;
+  width: 74vw;
+  height: 84vh;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 1.5vh 1.5vw;
+}
+
+.homepage-left-part {
+  width: 25%;
+  height: 100%;
+  background-color: lightblue;
+}
+
+.homepage-middle-and-right-part {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+}
+
+.middle-right-header {
+  display: flex;
+  align-items: top;
+  height: 12%;
+  justify-content: space-between;
+  background-color: pink;
+}
+
+.all-contacts {
+  display: flex;
+  justify-content: space-between;
+  height: 88%;
+}
+
+.homepage-middle-part {
+  background-color: red;
+  width: 75%;
+}
+
+.homepage-right-part {
+  background-color: green;
+  width: 25%;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  color: red;
+}
+
+.contact-input::-moz-placeholder {
+  color: red;
+}
+
+.contact-input:-ms-input-placeholder {
+  color: red;
+}
+
+.contact-input::placeholder {
+  color: red;
+}
+
+.added-contact {
+  margin-bottom: 20px;
+  background-color: grey;
 }/*# sourceMappingURL=App.css.map */

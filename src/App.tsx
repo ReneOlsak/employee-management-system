@@ -5,6 +5,7 @@ import LoginPage from "./pages/Login";
 import { initializeApp } from "firebase/app";
 import { config } from "./config/config";
 import AuthRoute from "./components/AuthRoute";
+import ContactForm from "./pages/ContactForm";
 
 initializeApp(config.firebaseConfig);
 
@@ -24,6 +25,7 @@ const App: React.FunctionComponent<AppProps> = (props) => {
             }
           />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/contact-form" element={<ContactForm />} />
         </Routes>
       </BrowserRouter>
     </div>
