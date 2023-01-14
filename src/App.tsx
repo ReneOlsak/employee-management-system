@@ -25,7 +25,6 @@ const App: React.FunctionComponent<AppProps> = (props) => {
             }
           />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/contact-form" element={<ContactForm />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -243,23 +243,27 @@ body {
   display: flex;
   justify-content: space-between;
   height: 88%;  
+  position: relative;
 }
 
 .homepage-middle-part {
   background-color: red;
-  width: 75%;
+  width: 100%;
 }
 
 .homepage-right-part {
   background-color: green;
-  width: 25%;
+  width: 350px;
 }
-
 
 .contact-form-container {
   display: flex;
   flex-direction: column;
   color: red;
+}
+
+.contact-form-invisible {
+  display: none;
 }
 
 .contact-input::placeholder {
@@ -269,4 +273,15 @@ body {
 .added-contact {
   margin-bottom: 20px;
   background-color: grey;
+}
+
+.contact-form-absolute {
+  position: absolute;
+  right: 2.3vw; 
+  top: 3vh 
+}
+
+.change-visibility-button {
+  position: absolute;
+  right: 0;
 }

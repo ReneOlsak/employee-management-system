@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import ContactForm from "./ContactForm";
@@ -10,10 +10,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
   const userName = auth.currentUser?.displayName;
   const email = auth.currentUser?.email;
   const navigate = useNavigate();
-
-  const addContactList = () => {
-    navigate("/contact-form");
-  };
+ 
 
   return (
     <main className="homepage-container">
@@ -27,15 +24,12 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
       <section className="homepage-middle-and-right-part">
         <div className="middle-right-header">
           <header className="header-title">Adress book</header>
-          <button onClick={addContactList} className="add-contact-button">
-            Add contact
-          </button>
         </div>
         <div className="all-contacts">
           <div className="homepage-middle-part">
             <ContactForm />
           </div>
-          <div className="homepage-right-part">One Contact</div>
+          <div className="homepage-right-part">Create contact</div>
         </div>
       </section>
     </main>
