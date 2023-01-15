@@ -1,3 +1,6 @@
+$dark-color: rgb(70, 70, 70);
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
 body,
 html {
@@ -205,6 +208,7 @@ button:focus {
 
 body {
   background-color: rgb(70, 70, 70);
+  color: white;
 }
 
 .homepage-container {
@@ -221,7 +225,8 @@ body {
 .homepage-left-part {
   width: 25%;
   height: 100%;
-  background-color: lightblue;
+  background-color: $dark-color;
+  border-right: 1px solid black;
 }
 
 .homepage-middle-and-right-part {
@@ -236,7 +241,8 @@ body {
   align-items: top;
   height: 12%;
   justify-content: space-between;
-  background-color: pink
+  background-color: $dark-color;
+  border-bottom: 1px solid black;
 }
 
 .all-contacts {
@@ -247,12 +253,13 @@ body {
 }
 
 .homepage-middle-part {
-  background-color: red;
+  background-color: $dark-color;
   width: 100%;
+  border-right: 1px solid black;
 }
 
 .homepage-right-part {
-  background-color: green;
+  background-color: $dark-color;
   width: 350px;
 }
 
@@ -285,3 +292,4 @@ body {
   position: absolute;
   right: 0;
 }
+

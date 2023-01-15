@@ -15,9 +15,30 @@ const ContactForm = () => {
   const [email, setEmail] = useState<string>("");
   const [contact, setContact] = useState<IUserData[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
+  const [editing, setEditing] = useState<number>(-1);
+
+  const handleEdit = (index: number) => {
+    setEditing(index);
+    setName(contact[index].name);
+    setJob(contact[index].job);
+    setNumber(contact[index].number);
+    setEmail(contact[index].email);
+    setVisible(true);
+  };
+
+  const clearForm = () => {
+    setName("");
+    setJob("");
+    setNumber("");
+    setEmail("");
+  };
 
   const changeVisibility = () => {
-    setVisible((prev) => !prev);
+    setVisible(true);
+  };
+
+  const changeToInvisible = () => {
+    setVisible(false);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,11 +55,27 @@ const ContactForm = () => {
 
   const addContact = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    const newContact = { name: name, job: job, number: number, email: email };
-    setContact([...contact, newContact]);
+    if (editing !== -1) {
+      const updatedContact = {
+        name: name,
+        job: job,
+        number: number,
+        email: email,
+      };
+      setContact(contact.map((c, i) => (i === editing ? updatedContact : c)));
+      setEditing(-1);
+      changeToInvisible();
+      clearForm();
+    } else {
+      const newContact = { name: name, job: job, number: number, email: email };
+      setContact([...contact, newContact]);
+      changeToInvisible();
+      clearForm();
+    }
   };
 
   const handleRemove = (index: any) => {
+    setEditing(-1);
     setContact(
       contact.filter((_, i) => {
         return i !== index;
@@ -58,16 +95,22 @@ const ContactForm = () => {
       <div className="contact-form-absolute">
         <div
           className={
-            visible ? "contact-form-invisible" : "contact-form-container"
+            visible === false
+              ? "contact-form-invisible"
+              : "contact-form-container"
           }
         >
           <div>ContactForm</div>
+          <button className="change-to-invisible" onClick={changeToInvisible}>
+            X
+          </button>
           <input
             onChange={handleChange}
             className="contact-input"
             type="text"
             name="name"
             placeholder="name"
+            value={name}
           />
           <input
             onChange={handleChange}
@@ -75,6 +118,7 @@ const ContactForm = () => {
             type="text"
             name="job"
             placeholder="job"
+            value={job}
           />
           <input
             onChange={handleChange}
@@ -82,6 +126,7 @@ const ContactForm = () => {
             type="text"
             name="number"
             placeholder="phone number"
+            value={number}
           />
           <input
             onChange={handleChange}
@@ -89,8 +134,9 @@ const ContactForm = () => {
             type="email"
             name="email"
             placeholder="email"
+            value={email}
           />
-          <button onClick={addContact}>Submit</button>
+          <button onClick={addContact}>{editing !== -1 ? 'Update' : 'Submit'}</button>
         </div>
       </div>
 
@@ -102,6 +148,7 @@ const ContactForm = () => {
               <div>{name.job}</div>
               <div>{name.number}</div>
               <div>{name.email}</div>
+              <button onClick={() => handleEdit(key)}>Edit</button>
               <button
                 onClick={() => {
                   handleRemove(key);
