@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import ContactForm from "./ContactForm";
-import LoggedInUser from "../icons/logged-in-user.png"
+import LoggedInUser from "../icons/logged-in-user.png";
 
 export interface HomePageProps {}
 
@@ -9,9 +9,18 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
   const auth = getAuth();
   const userName = auth.currentUser?.displayName;
   const email = auth.currentUser?.email;
+  const [darkMode, setDarkMode] = useState(false);
+
+  const changeTheme = () => {
+    setDarkMode(!darkMode)
+  }
 
   return (
-    <main className="homepage-container">
+    <main
+      className={
+        darkMode === true ? "homepage-container-dark" : "homepage-container"
+      }
+    >
       <section className="homepage-left-part">
         <div className="left-part-title-plus-button">
           <h2>Logged-In User</h2>
@@ -33,7 +42,9 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
           <div className="homepage-middle-part">
             <ContactForm />
           </div>
-          <div className="homepage-right-part">Create or Edit contact</div>
+          <div className="homepage-right-part">
+            <button onClick={changeTheme} className="dark-mode">Dark / Light Theme</button>
+          </div>
         </div>
       </section>
     </main>

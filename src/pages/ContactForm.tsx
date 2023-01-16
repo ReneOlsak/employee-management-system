@@ -106,7 +106,7 @@ const ContactForm = () => {
           <button className="change-to-invisible" onClick={changeToInvisible}>
             x
           </button>
-          
+          <div className="create-or-edit">Create or Edit contact</div>
           <input
             onChange={handleChange}
             className="contact-input"
@@ -145,7 +145,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div>
+      {contact.length === 0 ? <div className="no-contact">No contact</div> : <div>
         {contact.map((name: IUserData, key: number) => {
           return (
             <div key={key} className="added-contact">
@@ -174,7 +174,7 @@ const ContactForm = () => {
             </div>
           );
         })}
-      </div>
+      </div>}
     </form>
   );
 };
