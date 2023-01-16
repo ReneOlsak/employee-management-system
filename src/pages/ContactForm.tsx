@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import UserIcon from "../icons/user-icon.png";
+
 
 export interface IUserData {
   name: string;
@@ -39,6 +40,8 @@ const ContactForm = () => {
 
   const changeToInvisible = () => {
     setVisible(false);
+    setEditing(-1);
+    clearForm();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -100,10 +103,10 @@ const ContactForm = () => {
               : "contact-form-container"
           }
         >
-          <div>ContactForm</div>
           <button className="change-to-invisible" onClick={changeToInvisible}>
-            X
+            x
           </button>
+          
           <input
             onChange={handleChange}
             className="contact-input"
@@ -136,7 +139,9 @@ const ContactForm = () => {
             placeholder="email"
             value={email}
           />
-          <button onClick={addContact}>{editing !== -1 ? 'Update' : 'Submit'}</button>
+          <button className="submit-update-button" onClick={addContact}>
+            {editing !== -1 ? "Update" : "Submit"}
+          </button>
         </div>
       </div>
 
@@ -144,18 +149,28 @@ const ContactForm = () => {
         {contact.map((name: IUserData, key: number) => {
           return (
             <div key={key} className="added-contact">
-              <div>{name.name}</div>
-              <div>{name.job}</div>
-              <div>{name.number}</div>
-              <div>{name.email}</div>
-              <button onClick={() => handleEdit(key)}>Edit</button>
-              <button
-                onClick={() => {
-                  handleRemove(key);
-                }}
-              >
-                x
-              </button>
+              <div className="contact-info">
+                <img className="contact-img" src={UserIcon} />
+                <div className="name-job">
+                  <div>{name.name}</div>
+                  <div className="job">{name.job}</div>
+                </div>
+                <div className="phone-number">{name.number}</div>
+                <div className="email">{name.email}</div>
+              </div>
+              <div className="contact-buttons">
+                <button className="edit-button" onClick={() => handleEdit(key)}>
+                  Edit
+                </button>
+                <button
+                  className="remove-button"
+                  onClick={() => {
+                    handleRemove(key);
+                  }}
+                >
+                  x
+                </button>
+              </div>
             </div>
           );
         })}

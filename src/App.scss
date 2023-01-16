@@ -1,4 +1,16 @@
-$dark-color: rgb(70, 70, 70);
+$light-color: rgb(255, 255, 255);
+$dark-color: rgb(68, 68, 68);
+
+@mixin button-style {
+  background-color: #3283ec;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 900
+}
 
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
@@ -53,7 +65,7 @@ button:focus {
 
 .input-line:focus {
   outline: none;
-  border-color: #fff;
+  border-color: $dark-color;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
@@ -208,7 +220,8 @@ button:focus {
 
 body {
   background-color: rgb(70, 70, 70);
-  color: white;
+  color: black;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .homepage-container {
@@ -225,8 +238,34 @@ body {
 .homepage-left-part {
   width: 25%;
   height: 100%;
-  background-color: $dark-color;
-  border-right: 1px solid black;
+  background-color: $light-color;
+  border-right: 1px solid $dark-color;
+}
+
+.left-part-title-plus-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 7% 7%;
+  align-items: center;  
+}
+
+.left-part-title-plus-button h2 {
+  font-size: 20px;
+  margin: 10px 0px
+}
+
+.signout-button {
+  @include button-style
+}
+
+.left-part-user-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+.left-part-user-info p {
+  margin: 4px;
 }
 
 .homepage-middle-and-right-part {
@@ -238,11 +277,17 @@ body {
 
 .middle-right-header {
   display: flex;
-  align-items: top;
+  align-items: center;
   height: 12%;
   justify-content: space-between;
-  background-color: $dark-color;
-  border-bottom: 1px solid black;
+  background-color: $light-color;
+  border-bottom: 1px solid $dark-color;
+  padding-left: 1.5vw;
+  font-weight: bold;
+}
+
+.header-title {
+  font-size: 20px;
 }
 
 .all-contacts {
@@ -253,19 +298,26 @@ body {
 }
 
 .homepage-middle-part {
-  background-color: $dark-color;
+  background-color: $light-color;
   width: 100%;
-  border-right: 1px solid black;
+  border-right: 1px solid $dark-color;
 }
 
 .homepage-right-part {
-  background-color: $dark-color;
+  background-color: $light-color;
   width: 350px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .contact-form-container {
   display: flex;
   flex-direction: column;
+  gap: 2vh;
+  margin-top: 40px;
   color: red;
 }
 
@@ -273,23 +325,113 @@ body {
   display: none;
 }
 
+.contact-input {
+  height: 30px;
+  width: 205px;
+  margin-right: -24px;
+  border-radius: 3px;
+  padding: 0px 10px;;
+  outline: none;
+  font-size: 17px;
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+
 .contact-input::placeholder {
-  color: red
+  color: white;
+  font-size: 17px;
+}
+
+.submit-update-button {
+  @include button-style;
+  margin-right: 8px;
+}
+
+.change-to-invisible {
+  @include button-style;
+  position: absolute;
+  right: -24px;  
+  bottom: 0px;
+  padding: 4.5px 10px;  
+  font-weight: bold;
+  font-size: 17px;
+  background-color: rgb(194, 20, 20);
 }
 
 .added-contact {
-  margin-bottom: 20px;
-  background-color: grey;
+  margin: 10px;
+  padding: 5px 10px;
+  border: 1px solid $dark-color;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
 }
 
 .contact-form-absolute {
   position: absolute;
   right: 2.3vw; 
-  top: 3vh 
+  top: 3vh;  
 }
 
 .change-visibility-button {
   position: absolute;
-  right: 0;
+  right: 1.5vw;
+  top: -6.6vh;
+  @include button-style;
 }
 
+.contact-img {
+  width: 50px;
+  height: 50px;
+}
+
+.name-job {
+  width: 150px;
+  margin-left: 30px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.job {
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.phone-number {
+  width: 150px;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-button {
+  @include button-style
+}
+
+.remove-button {
+  @include button-style;
+  background-color: rgb(194, 20, 20);
+}
+
+.logged-in-user {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.logged-in-username {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.logged-in-email {
+  font-size: 19px;
+}

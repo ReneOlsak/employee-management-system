@@ -5,7 +5,6 @@ import LoginPage from "./pages/Login";
 import { initializeApp } from "firebase/app";
 import { config } from "./config/config";
 import AuthRoute from "./components/AuthRoute";
-import ContactForm from "./pages/ContactForm";
 
 initializeApp(config.firebaseConfig);
 
