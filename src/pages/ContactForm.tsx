@@ -17,6 +17,7 @@ const ContactForm = () => {
   const [contact, setContact] = useState<IUserData[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
   const [editing, setEditing] = useState<number>(-1);
+  const [filled, setFilled] = useState<boolean>(true)
 
   const handleEdit = (index: number) => {
     setEditing(index);
@@ -42,6 +43,7 @@ const ContactForm = () => {
     setVisible(false);
     setEditing(-1);
     clearForm();
+    setFilled(true);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +60,7 @@ const ContactForm = () => {
 
   const addContact = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    if (editing !== -1) {
+    if (editing !== -1 && name && job && number && email !== "") {
       const updatedContact = {
         name: name,
         job: job,
@@ -69,12 +71,16 @@ const ContactForm = () => {
       setEditing(-1);
       changeToInvisible();
       clearForm();
-    } else {
+      setFilled(true);
+    } else if (name && job && number && email !== "") {
       const newContact = { name: name, job: job, number: number, email: email };
       setContact([...contact, newContact]);
       changeToInvisible();
       clearForm();
-    }
+      setFilled(true);
+    } else {
+      setFilled(false);
+    }    
   };
 
   const handleRemove = (index: any) => {
@@ -142,6 +148,7 @@ const ContactForm = () => {
           <button className="submit-update-button" onClick={addContact}>
             {editing !== -1 ? "Update" : "Submit"}
           </button>
+          {filled === false ? <div className="alert">Please fill in all fields</div> : ""}
         </div>
       </div>
 

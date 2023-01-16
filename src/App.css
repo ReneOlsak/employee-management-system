@@ -350,6 +350,11 @@ body {
   color: white;
 }
 
+.alert {
+  position: absolute;
+  bottom: -25px;
+}
+
 .contact-input::-moz-placeholder {
   color: white;
   font-size: 17px;

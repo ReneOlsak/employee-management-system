@@ -381,6 +381,11 @@ body {
   color: white;
 }
 
+.alert {
+  position: absolute;
+  bottom: -25px;
+}
+
 .contact-input::placeholder {
   color: white;
   font-size: 17px;
