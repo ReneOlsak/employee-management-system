@@ -308,7 +308,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: none;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -634,7 +634,7 @@ body {
 }
 
 .homepage-container-dark ::-webkit-scrollbar-track {
-  background-color: rgb(49, 49, 49);
+  background-color: none;
 }
 
 .homepage-container-dark ::-webkit-scrollbar-thumb {

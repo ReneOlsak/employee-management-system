@@ -43,7 +43,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
             <ContactForm />
           </div>
           <div className="homepage-right-part">
-            <button onClick={changeTheme} className="dark-mode">Dark / Light Theme</button>
+            <button onClick={changeTheme} className="dark-mode">{darkMode === false ? "Dark Theme" : "Light Theme"}</button>
           </div>
         </div>
       </section>
