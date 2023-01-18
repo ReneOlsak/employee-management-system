@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-export interface LoginProps {}
-
-const Login: React.FunctionComponent<LoginProps> = (props) => {
+const Login: React.FunctionComponent = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const [authentication, setAuthentication] = useState(false);
@@ -23,9 +21,17 @@ const Login: React.FunctionComponent<LoginProps> = (props) => {
       });
   };
 
+
   return (
-    <div>
-      <button onClick={() => signInWithGoogle()} disabled={authentication} className="ghost-round full-width">Sign in with Google</button>
+    <div className="login-container">
+      <div className="login-title">Adress Book</div>
+      <button onClick={() => signInWithGoogle()} disabled={authentication} className="ghost-round full-width">Login with <span className="google-g1">G</span>
+      <span className="google-o1">o</span>
+      <span className="google-o2">o</span>
+      <span className="google-g2">g</span>
+      <span className="google-l">l</span>
+      <span className="google-e">e</span>
+      </button>
     </div>
   );
 };

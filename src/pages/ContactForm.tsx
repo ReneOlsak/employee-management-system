@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import UserIcon from "../icons/user-icon.png";
-
+import { getAuth } from "firebase/auth";
 
 export interface IUserData {
   name: string;
@@ -17,7 +17,16 @@ const ContactForm = () => {
   const [contact, setContact] = useState<IUserData[]>([]);
   const [visible, setVisible] = useState<boolean>(false);
   const [editing, setEditing] = useState<number>(-1);
-  const [filled, setFilled] = useState<boolean>(true)
+  const [filled, setFilled] = useState<boolean>(true);
+  const auth = getAuth();
+  const userEmail = auth.currentUser?.email;
+
+  useEffect(() => {
+    const storedContacts = JSON.parse(localStorage.getItem(`contact-${userEmail}`) || "[]");
+    if (storedContacts) {
+      setContact(storedContacts);
+    }
+  }, [userEmail]);
 
   const handleEdit = (index: number) => {
     setEditing(index);
@@ -67,7 +76,9 @@ const ContactForm = () => {
         number: number,
         email: email,
       };
-      setContact(contact.map((c, i) => (i === editing ? updatedContact : c)));
+      const contactToEdit = contact.map((c, i) => (i === editing ? updatedContact : c))
+      setContact(contactToEdit);   
+      localStorage.setItem(`contact-${userEmail}`, JSON.stringify(contactToEdit));   
       setEditing(-1);
       changeToInvisible();
       clearForm();
@@ -75,21 +86,22 @@ const ContactForm = () => {
     } else if (name && job && number && email !== "") {
       const newContact = { name: name, job: job, number: number, email: email };
       setContact([...contact, newContact]);
+      localStorage.setItem(`contact-${userEmail}`, JSON.stringify([...contact, newContact]));
       changeToInvisible();
       clearForm();
       setFilled(true);
     } else {
       setFilled(false);
-    }    
+    }
   };
 
   const handleRemove = (index: any) => {
     setEditing(-1);
-    setContact(
-      contact.filter((_, i) => {
-        return i !== index;
-      })
-    );
+    const contactToDelete = contact.filter((_, i) => {
+      return i !== index;
+    });
+    setContact(contactToDelete);
+    localStorage.setItem(`contact-${userEmail}`, JSON.stringify(contactToDelete));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -148,40 +160,51 @@ const ContactForm = () => {
           <button className="submit-update-button" onClick={addContact}>
             {editing !== -1 ? "Update" : "Submit"}
           </button>
-          {filled === false ? <div className="alert">Please fill in all fields</div> : ""}
+          {filled === false ? (
+            <div className="alert">Please fill in all fields</div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
-      {contact.length === 0 ? <div className="no-contact">No contact</div> : <div>
-        {contact.map((name: IUserData, key: number) => {
-          return (
-            <div key={key} className="added-contact">
-              <div className="contact-info">
-                <img className="contact-img" src={UserIcon} />
-                <div className="name-job">
-                  <div>{name.name}</div>
-                  <div className="job">{name.job}</div>
+      {contact.length === 0 ? (
+        <div className="no-contact">No contact</div>
+      ) : (
+        <div>
+          {contact.map((name: IUserData, key: number) => {
+            return (
+              <div key={key} className="added-contact">
+                <div className="contact-info">
+                  <img className="contact-img" src={UserIcon} />
+                  <div className="name-job">
+                    <div>{name.name}</div>
+                    <div className="job">{name.job}</div>
+                  </div>
+                  <div className="phone-number">{name.number}</div>
+                  <div className="email">{name.email}</div>
                 </div>
-                <div className="phone-number">{name.number}</div>
-                <div className="email">{name.email}</div>
+                <div className="contact-buttons">
+                  <button
+                    className="edit-button"
+                    onClick={() => handleEdit(key)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="remove-button"
+                    onClick={() => {
+                      handleRemove(key);
+                    }}
+                  >
+                    x
+                  </button>
+                </div>
               </div>
-              <div className="contact-buttons">
-                <button className="edit-button" onClick={() => handleEdit(key)}>
-                  Edit
-                </button>
-                <button
-                  className="remove-button"
-                  onClick={() => {
-                    handleRemove(key);
-                  }}
-                >
-                  x
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>}
+            );
+          })}
+        </div>
+      )}
     </form>
   );
 };

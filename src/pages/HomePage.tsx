@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import ContactForm from "./ContactForm";
 import LoggedInUser from "../icons/logged-in-user.png";
 
 export interface HomePageProps {}
 
+
+
 const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
   const auth = getAuth();
   const userName = auth.currentUser?.displayName;
-  const email = auth.currentUser?.email;
+  const email = auth.currentUser?.email;  
   const [darkMode, setDarkMode] = useState(false);
 
   const changeTheme = () => {

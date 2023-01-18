@@ -29,4 +29,6 @@ const AuthRoute: React.FunctionComponent<AuthRouteProps> = (props) => {
   return <div>{children}</div>;
 };
 
+
+
 export default AuthRoute;
