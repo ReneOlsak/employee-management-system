@@ -133,7 +133,7 @@ body {
 
 .left-part-title-plus-button h2 {
   font-size: 20px;
-  margin: 10px 0px
+  margin: 10px 0px;
 }
 
 .signout-button {
@@ -466,4 +466,11 @@ body {
 
 .homepage-container-dark ::-webkit-scrollbar-thumb {
   background-color: rgb(30, 30, 30);
+}
+
+.loading {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  color: grey;
 }

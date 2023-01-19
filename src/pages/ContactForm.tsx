@@ -95,6 +95,12 @@ const ContactForm = () => {
     }
   };
 
+  const timeOutForContact = () => {
+    setTimeout(() => {
+      return <div>No Contacts</div>
+    }, 100)
+  }
+
   const handleRemove = (index: any) => {
     setEditing(-1);
     const contactToDelete = contact.filter((_, i) => {

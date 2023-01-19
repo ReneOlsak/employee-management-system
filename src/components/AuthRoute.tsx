@@ -13,6 +13,7 @@ const AuthRoute: React.FunctionComponent<AuthRouteProps> = (props) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const AuthCheck = onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoading(false);
@@ -24,11 +25,9 @@ const AuthRoute: React.FunctionComponent<AuthRouteProps> = (props) => {
     return () => AuthCheck();
   }, [auth]);
 
-  if (loading) return <p>loading...</p>;
+  if (loading) return <p className="loading">Loading page...</p>;
 
   return <div>{children}</div>;
 };
-
-
 
 export default AuthRoute;
