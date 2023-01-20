@@ -1,0 +1,73 @@
+.login-container {
+  background-color: white;
+  width: 20vw;
+  height: 25vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 0 5px white;
+}
+
+.login-title {
+  margin-top: -40px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  font-weight: 900;
+  color: $dark-color;
+}
+
+.ghost-round {
+  cursor: pointer;
+  background: none;
+  border: 1px solid $dark-color;
+  border-radius: 30px;
+  color: $dark-color;
+  font-size: 1.7rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  padding: 10px 15px;
+  transition: 0.2s;
+}
+
+.ghost-round:hover {
+  background: $dark-color;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.google-g1,
+.google-g2,
+.google-o1,
+.google-o2,
+.google-l,
+.google-e {
+  font-weight: 500;
+  transition: 0.1s;
+}
+
+.ghost-round:hover .google-g1 {
+  color: #509cff;
+}
+
+.ghost-round:hover .google-o1 {
+  color: red;
+}
+
+.ghost-round:hover .google-o2 {
+  color: yellow;
+}
+
+.ghost-round:hover .google-g2 {
+  color: #509cff;
+}
+
+.ghost-round:hover .google-l {
+  color: green;
+}
+
+.ghost-round:hover .google-e {
+  color: red;
+}

@@ -1,0 +1,82 @@
+.dark-mode {
+  padding: 10px 15px;
+  position: absolute;
+  bottom: 20px;
+  background-color: $light-grey-color;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.dark-mode:hover {
+  background-color: $dark-color;
+  color: white;
+}
+
+.homepage-container-dark {
+  @extend .homepage-container;
+  color: $light-color;
+}
+
+.homepage-container-dark .contact-input {
+  color: black;
+  background-color: $light-color;
+}
+
+.homepage-container-dark .contact-input::placeholder {
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.homepage-container-dark .homepage-left-part {
+  background-color: $dark-color;
+  border-right: 1px solid $grey-color-borders;
+}
+
+.homepage-container-dark .homepage-middle-part {
+  background-color: $dark-color;
+  border-right: 1px solid $grey-color-borders;
+}
+
+.homepage-container-dark .homepage-right-part {
+  background-color: $dark-color;
+}
+
+.homepage-container-dark .create-or-edit {
+  color: white;
+}
+
+.homepage-container-dark .middle-right-header {
+  background-color: $dark-color;
+  border-bottom: 1px solid $grey-color-borders;
+}
+
+.homepage-container-dark .added-contact {
+  border: 1px solid $grey-color-borders;
+}
+
+.homepage-container-dark .dark-mode {
+  background-color: rgb(30, 30, 30);
+  color: white;
+}
+
+.homepage-container-dark .dark-mode:hover {
+  color: black;
+  background-color: $light-color;
+}
+
+.homepage-container-dark ::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+.homepage-container-dark ::-webkit-scrollbar-thumb {
+  background-color: rgb(30, 30, 30);
+}
+
+.loading {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  color: grey;
+}

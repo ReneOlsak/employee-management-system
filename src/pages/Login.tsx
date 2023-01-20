@@ -25,7 +25,7 @@ const Login: React.FunctionComponent = () => {
   return (
     <div className="login-container">
       <div className="login-title">Adress Book</div>
-      <button onClick={() => signInWithGoogle()} disabled={authentication} className="ghost-round full-width">Login with <span className="google-g1">G</span>
+      <button onClick={() => signInWithGoogle()} disabled={authentication} className="ghost-round">Login with <span className="google-g1">G</span>
       <span className="google-o1">o</span>
       <span className="google-o2">o</span>
       <span className="google-g2">g</span>

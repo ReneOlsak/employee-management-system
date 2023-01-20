@@ -1,0 +1,20 @@
+$light-color: rgb(255, 255, 255);
+$dark-color: rgb(49, 49, 49);
+$light-grey-color: rgb(215, 215, 215);
+$grey-color-borders: rgb(140, 140, 140);
+
+@mixin button-style {
+  background-color: #3283ec;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 900;
+  transition: 0.2s;
+}
+
+@mixin button-style-hover {
+  background-color: #509cff;
+}

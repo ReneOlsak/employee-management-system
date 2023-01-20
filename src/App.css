@@ -1,12 +1,3 @@
-body,
-html {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .login-container {
   background-color: white;
   width: 20vw;
@@ -47,7 +38,12 @@ html {
   transition: 0.2s;
 }
 
-.google-g1, .google-g2, .google-o1, .google-o2, .google-l, .google-e {
+.google-g1,
+.google-g2,
+.google-o1,
+.google-o2,
+.google-l,
+.google-e {
   font-weight: 500;
   transition: 0.1s;
 }
@@ -144,6 +140,21 @@ body {
 
 .left-part-user-info p {
   margin: 4px;
+}
+
+.logged-in-user {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.logged-in-username {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.logged-in-email {
+  font-size: 19px;
 }
 
 .homepage-middle-and-right-part {
@@ -421,21 +432,6 @@ body {
   background-color: rgb(226, 65, 65);
 }
 
-.logged-in-user {
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
-}
-
-.logged-in-username {
-  font-weight: 500;
-  font-size: 25px;
-}
-
-.logged-in-email {
-  font-size: 19px;
-}
-
 .no-contact {
   display: flex;
   justify-content: center;
@@ -544,4 +540,13 @@ body {
   font-size: 30px;
   font-weight: 100;
   color: grey;
+}
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=App.css.map */

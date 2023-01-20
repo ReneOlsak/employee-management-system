@@ -1,0 +1,291 @@
+body {
+  background-color: rgb(39, 39, 39);
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.homepage-container {
+  display: flex;
+  width: 74vw;
+  height: 84vh;
+  border-radius: 5px;
+}
+
+//Left part
+
+.homepage-left-part {
+  width: 25%;
+  height: 100%;
+  background-color: $light-color;
+  border-right: 1px solid $dark-color;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transition: 0.3s;
+}
+
+.left-part-title-plus-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 7% 7%;
+  align-items: center;
+}
+
+.left-part-title-plus-button h2 {
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+.signout-button {
+  @include button-style;
+}
+
+.signout-button:hover {
+  @include button-style;
+  @include button-style-hover;
+}
+
+.left-part-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-part-user-info p {
+  margin: 4px;
+}
+
+.logged-in-user {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.logged-in-username {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.logged-in-email {
+  font-size: 19px;
+}
+
+// Right part
+
+.homepage-middle-and-right-part {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+}
+
+.middle-right-header {
+  display: flex;
+  align-items: center;
+  height: 12%;
+  justify-content: space-between;
+  background-color: $light-color;
+  border-bottom: 1px solid $dark-color;
+  padding-left: 1.5vw;
+  font-weight: bold;
+  border-top-right-radius: 5px;
+  transition: 0.4s;
+}
+
+.header-title {
+  font-size: 20px;
+}
+
+.all-contacts {
+  display: flex;
+  justify-content: space-between;
+  height: 88%;
+  position: relative;
+}
+
+.homepage-middle-part {
+  background-color: $light-color;
+  width: 100%;
+  border-right: 1px solid $dark-color;
+  transition: 0.4s;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light-grey-color;
+  border-radius: 10px;
+}
+
+.homepage-right-part {
+  background-color: $light-color;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom-right-radius: 5px;
+  transition: 0.5s;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  color: red;
+}
+
+.contact-form-invisible {
+  display: none;
+}
+
+.contact-input {
+  height: 30px;
+  width: 205px;
+  margin-right: -24px;
+  border-radius: 3px;
+  padding: 0px 10px;
+  outline: none;
+  font-size: 17px;
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+
+.alert {
+  position: absolute;
+  bottom: -25px;
+}
+
+.contact-input::placeholder {
+  color: white;
+  font-size: 17px;
+}
+
+.submit-update-button {
+  @include button-style;
+  margin-right: 8px;
+}
+
+.submit-update-button:hover {
+  @include button-style;
+  @include button-style-hover;
+}
+
+.change-to-invisible {
+  @include button-style;
+  position: absolute;
+  right: -24px;
+  bottom: 0px;
+  padding: 4.5px 10px;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: rgb(194, 20, 20);
+}
+
+.change-to-invisible:hover {
+  background-color: rgb(226, 65, 65);
+}
+
+.added-contact {
+  margin: 10px;
+  padding: 5px 10px;
+  border: 1px solid $dark-color;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.contact-form-absolute {
+  position: absolute;
+  right: 2.3vw;
+  top: 3vh;
+}
+
+.change-visibility-button {
+  position: absolute;
+  right: 1.5vw;
+  top: -6.6vh;
+  @include button-style;
+}
+
+.change-visibility-button:hover {
+  @include button-style;
+  @include button-style-hover();
+}
+
+.contact-img {
+  width: 50px;
+  height: 50px;
+}
+
+.name-job {
+  width: 150px;
+  margin-left: 30px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.job {
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.phone-number {
+  width: 150px;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-button {
+  @include button-style;
+}
+
+.edit-button:hover {
+  @include button-style;
+  @include button-style-hover;
+}
+
+.remove-button {
+  @include button-style;
+  padding: 4.5px 10px;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: rgb(194, 20, 20);
+}
+
+.remove-button:hover {
+  background-color: rgb(226, 65, 65);
+}
+
+.no-contact {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 22px;
+  font-weight: 100;
+}
+
+.create-or-edit {
+  display: flex;
+  justify-content: center;
+  margin-right: -24px;
+  font-size: 22px;
+  font-weight: 100;
+  color: black;
+  transition: 0.5s;
+}
