@@ -28,6 +28,7 @@ const ContactForm = () => {
     }
   }, [userEmail]);
 
+  // Edit contact
   const handleEdit = (index: number) => {
     setEditing(index);
     setName(contact[index].name);
@@ -35,24 +36,6 @@ const ContactForm = () => {
     setNumber(contact[index].number);
     setEmail(contact[index].email);
     setVisible(true);
-  };
-
-  const clearForm = () => {
-    setName("");
-    setJob("");
-    setNumber("");
-    setEmail("");
-  };
-
-  const changeVisibility = () => {
-    setVisible(true);
-  };
-
-  const changeToInvisible = () => {
-    setVisible(false);
-    setEditing(-1);
-    clearForm();
-    setFilled(true);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +50,31 @@ const ContactForm = () => {
     }
   };
 
+  // Clearing contact form
+
+  const clearForm = () => {
+    setName("");
+    setJob("");
+    setNumber("");
+    setEmail("");
+  };
+
+  // Visibility of contact form
+  const changeVisibility = () => {
+    setVisible(true);
+  };
+
+  const changeToInvisible = () => {
+    setVisible(false);
+    setEditing(-1);
+    clearForm();
+    setFilled(true);
+  };
+
+  
+  
+
+  // Adding contact
   const addContact = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     if (editing !== -1 && name && job && number && email !== "") {
@@ -95,12 +103,12 @@ const ContactForm = () => {
     }
   };
 
-  const timeOutForContact = () => {
-    setTimeout(() => {
-      return <div>No Contacts</div>
-    }, 100)
-  }
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  // Deleting contact
   const handleRemove = (index: any) => {
     setEditing(-1);
     const contactToDelete = contact.filter((_, i) => {
@@ -108,11 +116,7 @@ const ContactForm = () => {
     });
     setContact(contactToDelete);
     localStorage.setItem(`contact-${userEmail}`, JSON.stringify(contactToDelete));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  };  
 
   return (
     <form onSubmit={handleSubmit}>

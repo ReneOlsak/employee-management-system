@@ -11,3 +11,256 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+
+@media screen and (min-width: 2559px) {
+  .name-job {
+    font-size: 20px;
+    width: 250px;
+    margin-left: 40px;
+  }
+  
+  .job {
+    font-size: 15px;
+  }
+
+  .added-contact {
+    height: 60px;
+    font-size: 20px;
+  }
+
+  .phone-number {
+    width: 250px;
+  }
+
+  .email {
+    width: 300px;
+  }
+
+  .logged-in-user {
+    width: 170px;
+    height: 170px;
+  }
+
+  .logged-in-username {
+    font-size: 35px;
+  }
+
+  .logged-in-email {
+    font-size: 25px;
+  }
+
+  .left-part-title-plus-button h2 {
+    font-size: 30px;
+  }
+
+  .signout-button {
+    font-size: 20px;
+  }
+
+  .change-visibility-button {
+    font-size: 20px;
+  }
+
+  .dark-mode {
+    font-size: 20px;
+  }
+
+  .header-title {
+    font-size: 30px;
+  }
+
+  .edit-button {
+    font-size: 18px;
+    right: 45px;
+  }
+
+  .remove-button {
+    font-size: 23px;
+  }
+
+  .contact-img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+@media screen and (max-width: 1441px) {
+  .left-part-title-plus-button h2 {
+    font-size: 17px;
+  }
+
+  .signout-button {
+    font-size: 12px;
+  }
+
+  .change-visibility-button {
+    font-size: 12px;
+  }
+
+  .submit-update-button {
+    font-size: 12px;
+  }
+
+  .change-to-invisible {
+    font-size: 16px;
+  };
+
+  .contact-input {
+    width: 180px;
+    margin-right: -15px;
+    font-size: 15px;
+  }
+
+  .contact-input::placeholder {
+    font-size: 15px;
+  }
+
+  .create-or-edit {
+    margin-right: -15px;
+  }
+
+  .logged-in-username {
+    font-size: 22px;
+  }
+
+  .logged-in-email {
+    font-size: 16px;
+  }
+
+  .contact-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .added-contact {
+    font-size: 14px;
+  }
+
+  .name-job {
+    font-size: 14px;
+    width: 130px;
+    overflow-y: scroll
+  };
+
+  .job {
+    font-size: 12px;
+  };
+
+  .phone-number{
+    width: 90px;
+  };
+  .email {
+    width: 125px;
+  };
+
+  .edit-button {
+    font-size: 12px;
+  };
+
+  .remove-button {
+    font-size: 16px;
+  };
+
+  .ghost-round {
+    font-size: 20px;
+  }
+
+  .login-container {
+    height: 20vh
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .homepage-left-part {
+    width: 170px;
+  };
+
+  .logged-in-username {
+    font-size: 17px;
+  }
+
+  .logged-in-email {
+    font-size: 11px;
+  }
+
+  .left-part-title-plus-button h2  {
+    font-size: 13px;
+  }
+
+  .signout-button {
+    font-size: 10px;
+  }
+
+  .change-visibility-button {
+    font-size: 10px;
+  }
+
+  .header-title {
+    font-size: 17px;
+  }  
+
+  .homepage-right-part {
+    width: 250px;
+  }
+
+  .contact-input {
+    width: 130px;
+    height: 25px;
+    font-size: 12px;
+  };
+
+  .contact-input::placeholder {
+    font-size: 12px;
+  }
+
+  .submit-update-button {
+    width: 125px;
+    font-size: 10px;
+  };
+
+  .change-to-invisible {
+    right: -15px;
+    font-size: 13px;
+  };
+
+  .create-or-edit {
+    font-size: 15px;
+  };
+
+  .dark-mode {
+    font-size: 11px;
+  }
+
+  .edit-button {
+    font-size: 10px;
+    right: 39px;
+  }
+
+  .remove-button {
+    font-size: 13px;
+  }
+
+  .name-job {
+    width: 90px;
+    font-size: 12px;
+    margin-left: 10px;
+  };
+
+  .job {
+    font-size: 10px
+  }
+
+  .phone-number {
+    width: 70px;
+  }
+
+  .added-contact {
+    font-size: 12px;
+  }
+
+  .email {
+    width: 60px;
+  }
+}

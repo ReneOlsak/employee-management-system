@@ -200,6 +200,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .contact-info {
@@ -231,28 +232,55 @@ body {
 }
 
 .name-job {
-  width: 150px;
+  width: 200px;
   margin-left: 30px;
   font-size: 17px;
   font-weight: 500;
+  overflow-y:scroll;
+}
+
+.name-job::-webkit-scrollbar {
+  height: 3px;
 }
 
 .job {
   font-size: 13px;
   font-weight: 100;
+  overflow-y:scroll;
+}
+
+.job::-webkit-scrollbar {
+  height: 3px;
 }
 
 .phone-number {
-  width: 150px;
+  width: 130px;
+  overflow-y:scroll;
+}
+
+.phone-number::-webkit-scrollbar {
+  height: 3px;
+}
+
+.email {
+  width: 250px;
+  overflow-y:scroll;
+}
+
+.email::-webkit-scrollbar {
+  height: 3px;
 }
 
 .contact-buttons {
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 
 .edit-button {
   @include button-style;
+  position: absolute;
+  right: 42px;
 }
 
 .edit-button:hover {
@@ -266,6 +294,8 @@ body {
   font-weight: bold;
   font-size: 17px;
   background-color: rgb(194, 20, 20);
+  position: absolute;
+  right: 10px;;
 }
 
 .remove-button:hover {

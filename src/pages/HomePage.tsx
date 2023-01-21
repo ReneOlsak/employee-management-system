@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import ContactForm from "./ContactForm";
 import LoggedInUser from "../icons/logged-in-user.png";
