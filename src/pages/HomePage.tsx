@@ -38,7 +38,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = (props) => {
       </section>
       <section className="homepage-middle-and-right-part">
         <div className="middle-right-header">
-          <header className="header-title">Adress book</header>
+          <header className="header-title">Employee management system</header>
         </div>
         <div className="all-contacts">
           <div className="homepage-middle-part">
